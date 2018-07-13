@@ -10,36 +10,6 @@ use std::f32;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-extern "C" {
-    fn alert(s: &str);
-
-    type HTMLDocument;
-    type Element;
-
-    static document: HTMLDocument;
-
-    #[wasm_bindgen(method)]
-    fn createElement(this: &HTMLDocument, tagName: &str) -> Element;
-
-    // #[wasm_bindgen(method)]
-    // fn getElementById(this: &HTMLDocument, tagName: &str) -> Element;
-
-    #[wasm_bindgen(method, getter)]
-    fn body(this: &HTMLDocument) -> Element;
-
-    #[wasm_bindgen(method, js_name = appendChild)]
-    fn append_child(this: &Element, item: Element);
-
-    #[wasm_bindgen(method, setter = innerHTML)]
-    fn set_inner_html(this: &Element, html: &str);
-}
-
-#[wasm_bindgen]
-pub fn do_alert(item: &str) {
-    alert(&format!("This is from WASM and {}", item));
-}
-
-#[wasm_bindgen]
 pub struct FractalFactory {
     pixels: Vec<u8>,
     width: u32,
@@ -70,11 +40,6 @@ impl FractalFactory {
         ] as [[u8; 4]; 16];
 
         let max_iterations = iterations;
-
-        // let slider = document.getElementById("iterations-slider");
-        // let _iter_value = slider.value();
-
-        // let _v = kawk();
 
         let imgx = 720;
         let imgy = 720;
@@ -128,16 +93,4 @@ impl FractalFactory {
     pub fn pixels(&self) -> Vec<u8> {
         self.pixels.clone()
     }
-}
-
-#[wasm_bindgen]
-pub fn create_dom_elements() {
-    let div = document.createElement("div");
-    let p = document.createElement("p");
-
-    p.set_inner_html("Hello from WASM in Rust.");
-
-    div.append_child(p);
-
-    document.body().append_child(div);
 }

@@ -9,7 +9,7 @@ const renderFractal = (
   const canvas = document.getElementById('canvas') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
 
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const message = document.getElementById('progress-message') as HTMLElement;
   message.innerHTML = 'Computing fractal...';

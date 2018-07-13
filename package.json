@@ -15,6 +15,6 @@
   "scripts": {
     "compile:ts": "tsc",
     "compile:wasm": "cargo +nightly build --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/debug/wasm_tracer.wasm --out-dir ./assets",
-    "serve": "tsc --watch & webpack-dev-server"
+    "serve": "webpack-dev-server"
   }
 }
