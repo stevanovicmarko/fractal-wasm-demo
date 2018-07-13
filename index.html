@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WASM Fractals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/assets/main.css" />
+</head>
+
+<body>
+    <div id="root">
+        <fieldset>
+            <legend>Number of iterations</legend>
+            <label for="iterations-slider" id="iter-label">10</label>
+            <input type="range" id="iterations-slider" name="iterations" min="10" max="200" value="10" step="5" />
+            <button id="apply-iterations">Apply</button>
+            <p id="progress-message">Click on apply button to generate fractal</p>
+        </fieldset>
+        <div>
+            <canvas id="canvas" width="720" height="720"></canvas>
+        </div>
+    </div>
+    <script src="./assets/index.js"></script>
+</body>
+
+</html>

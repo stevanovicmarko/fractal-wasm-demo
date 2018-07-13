@@ -1,0 +1,20 @@
+{
+  "name": "wasm_fractal",
+  "version": "0.1.0",
+  "description": "WASM demo that generate fractals using rust and wasm-bindgen",
+  "main": "index.js",
+  "author": "Marko Stevanović <stevanovicmarko@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "compile:ts": "tsc",
+    "compile:wasm": "cargo +nightly build --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/debug/wasm_tracer.wasm --out-dir ./assets",
+    "serve": "tsc --watch & webpack-dev-server"
+  }
+}
