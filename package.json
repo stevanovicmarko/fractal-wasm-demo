@@ -7,14 +7,15 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "typescript": "^2.9.2",
-    "webpack": "^4.16.0",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "concurrently": "^3.6.1",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
   },
   "scripts": {
-    "compile:ts": "tsc",
-    "compile:wasm": "cargo +nightly build --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/debug/wasm_tracer.wasm --out-dir ./assets",
-    "serve": "webpack-dev-server"
+    "build:ts": "tsc",
+    "build:wasm": "cargo +nightly build --release --target wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/release/wasm_tracer.wasm --out-dir ./assets/",
+    "serve": "concurrently \"tsc -w\" \"webpack-dev-server\""
   }
 }
